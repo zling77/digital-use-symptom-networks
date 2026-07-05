@@ -1,0 +1,827 @@
+---
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
+const mainFigures = [
+  {
+    src: 'figures/figure-1.png',
+    label: 'Figure 1',
+    title: 'Baseline six-domain symptom network and structural-control profile',
+    caption:
+      'The baseline network contained 104 nodes across six domains. A compact driver core from diet, behavior and emotion governed static structural control while remaining distinct from high-strength symptoms.',
+  },
+  {
+    src: 'figures/figure-2.png',
+    label: 'Figure 2',
+    title: 'Cross-lagged panel network across two waves',
+    caption:
+      'In 6,092 matched adolescents, emotional distress was the strongest net temporal source. Behavior and physical activity sat downstream, and digital use did not lead the system.',
+  },
+  {
+    src: 'figures/figure-3.png',
+    label: 'Figure 3',
+    title: 'Bayesian directed graph convergence',
+    caption:
+      'A Bayesian directed graph learned from baseline scores converged with the longitudinal CLPN pattern, placing emotional distress on the source side of the network.',
+  },
+  {
+    src: 'figures/figure-4.png',
+    label: 'Figure 4',
+    title: 'Cross-cultural triangulation in young adults',
+    caption:
+      'Across 147,506 young adults from 240 countries, the emotional domain was the strongest hub, while adult social-media frequency was weakly coupled to the broader health network.',
+  },
+  {
+    src: 'figures/figure-5.png',
+    label: 'Figure 5',
+    title: 'Independent UK longitudinal replication',
+    caption:
+      'The Millennium Cohort Study confirmed the screen-sink pattern from age 14 to 17, with internalizing distress among the upstream sources.',
+  },
+];
+
+const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
+  src: `figures/figure-s${index + 1}.png`,
+  label: `Figure S${index + 1}`,
+}));
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Paper website for Emotional Distress Drives Adolescent Digital Use Symptom Networks."
+    />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <title>Emotional Distress Drives Adolescent Digital Use Symptom Networks</title>
+    <style>
+      :root {
+        --ink: #152326;
+        --muted: #5c6b6e;
+        --paper: #fbfaf7;
+        --panel: #ffffff;
+        --line: #d9e0df;
+        --teal: #2a9d8f;
+        --coral: #d65f49;
+        --gold: #c9952e;
+        --forest: #314d43;
+        --shadow: 0 18px 55px rgba(21, 35, 38, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        line-height: 1.58;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid rgba(217, 224, 223, 0.84);
+        background: rgba(251, 250, 247, 0.92);
+        backdrop-filter: blur(14px);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        width: min(1180px, calc(100% - 32px));
+        min-height: 64px;
+        margin: 0 auto;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 760;
+      }
+
+      .brand-mark {
+        display: inline-grid;
+        width: 30px;
+        height: 30px;
+        place-items: center;
+        border: 1px solid rgba(42, 157, 143, 0.28);
+        border-radius: 8px;
+        background: #e8f3ef;
+        color: var(--teal);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+      }
+
+      .hero {
+        position: relative;
+        display: grid;
+        min-height: 670px;
+        align-items: end;
+        overflow: hidden;
+        background:
+          linear-gradient(90deg, rgba(14, 27, 30, 0.9) 0%, rgba(14, 27, 30, 0.68) 48%, rgba(14, 27, 30, 0.18) 100%),
+          var(--hero-image);
+      }
+
+      .hero-inner {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 92px 0 72px;
+        color: #fffaf2;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 20px;
+        color: #f1c976;
+        font-size: 0.82rem;
+        font-weight: 780;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        width: 34px;
+        height: 2px;
+        background: currentColor;
+        content: "";
+      }
+
+      h1 {
+        max-width: 910px;
+        margin: 0;
+        font-size: clamp(2.35rem, 6vw, 5.45rem);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .authors {
+        max-width: 820px;
+        margin: 24px 0 0;
+        color: rgba(255, 250, 242, 0.88);
+        font-size: 1.08rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.36);
+        border-radius: 8px;
+        padding: 0 16px;
+        color: #fffaf2;
+        font-weight: 760;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        border-color: #f1c976;
+        background: #f1c976;
+        color: #1f2d2f;
+      }
+
+      main {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1px;
+        margin-top: -34px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--line);
+        box-shadow: var(--shadow);
+      }
+
+      .metric {
+        min-height: 118px;
+        padding: 22px;
+        background: var(--panel);
+      }
+
+      .metric strong {
+        display: block;
+        color: var(--forest);
+        font-size: 2rem;
+        line-height: 1;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      section {
+        padding: 76px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(190px, 0.36fr) minmax(0, 1fr);
+        gap: 42px;
+        align-items: start;
+        margin-bottom: 34px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(1.65rem, 3vw, 2.55rem);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .section-kicker {
+        margin: 7px 0 0;
+        color: var(--coral);
+        font-size: 0.8rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .lead {
+        max-width: 820px;
+        margin: 0;
+        color: #344447;
+        font-size: 1.12rem;
+      }
+
+      .abstract {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+        gap: 28px;
+        align-items: start;
+      }
+
+      .abstract-text {
+        margin: 0;
+        color: #263638;
+        font-size: 1.05rem;
+      }
+
+      .finding-list {
+        display: grid;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .finding-list li {
+        border-left: 4px solid var(--teal);
+        border-radius: 0 8px 8px 0;
+        padding: 14px 16px;
+        background: #eef6f3;
+        color: #253638;
+      }
+
+      .finding-list strong {
+        color: var(--forest);
+      }
+
+      .figure-stack {
+        display: grid;
+        gap: 30px;
+      }
+
+      .figure-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+        gap: 0;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 12px 35px rgba(21, 35, 38, 0.08);
+      }
+
+      .figure-media {
+        display: grid;
+        min-height: 360px;
+        place-items: center;
+        border-right: 1px solid var(--line);
+        background: #f3f6f4;
+      }
+
+      .figure-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .figure-copy {
+        padding: 28px;
+      }
+
+      .figure-label {
+        color: var(--gold);
+        font-size: 0.8rem;
+        font-weight: 820;
+        text-transform: uppercase;
+      }
+
+      h3 {
+        margin: 8px 0 12px;
+        font-size: 1.38rem;
+        line-height: 1.18;
+        letter-spacing: 0;
+      }
+
+      .figure-copy p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .methods-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .method {
+        min-height: 190px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 22px;
+        background: var(--panel);
+      }
+
+      .method b {
+        display: block;
+        color: var(--forest);
+        font-size: 1.05rem;
+      }
+
+      .method p {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+
+      .supplement-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .supplement-grid a {
+        display: grid;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        text-decoration: none;
+      }
+
+      .supplement-grid img {
+        width: 100%;
+        aspect-ratio: 1.35;
+        object-fit: contain;
+        background: #f3f6f4;
+      }
+
+      .supplement-grid span {
+        padding: 10px 12px;
+        color: var(--muted);
+        font-size: 0.88rem;
+        font-weight: 700;
+      }
+
+      .availability {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 22px;
+      }
+
+      .availability-block {
+        border-top: 4px solid var(--coral);
+        border-radius: 8px;
+        padding: 24px;
+        background: var(--panel);
+      }
+
+      .availability-block:nth-child(2) {
+        border-top-color: var(--teal);
+      }
+
+      .availability-block h3 {
+        margin-top: 0;
+      }
+
+      .availability-block p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      footer {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 34px 0 48px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 900px) {
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 14px 0;
+        }
+
+        .nav-links {
+          width: 100%;
+          overflow-x: auto;
+          padding-bottom: 3px;
+        }
+
+        .hero {
+          min-height: 620px;
+          background:
+            linear-gradient(180deg, rgba(14, 27, 30, 0.94) 0%, rgba(14, 27, 30, 0.72) 64%, rgba(14, 27, 30, 0.4) 100%),
+            var(--hero-image-mobile);
+        }
+
+        .metrics,
+        .abstract,
+        .figure-card,
+        .methods-grid,
+        .availability {
+          grid-template-columns: 1fr;
+        }
+
+        .metrics {
+          margin-top: 18px;
+        }
+
+        .section-head {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .figure-media {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .supplement-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 560px) {
+        .hero-inner {
+          padding: 72px 0 48px;
+        }
+
+        .hero-actions {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .metric {
+          min-height: 96px;
+        }
+
+        section {
+          padding: 54px 0;
+        }
+
+        .figure-media {
+          min-height: 260px;
+        }
+
+        .supplement-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href={`${base}`}>
+          <span class="brand-mark" aria-hidden="true">N</span>
+          <span>Digital Use Symptom Networks</span>
+        </a>
+        <div class="nav-links">
+          <a href="#abstract">Abstract</a>
+          <a href="#findings">Findings</a>
+          <a href="#figures">Figures</a>
+          <a href="#methods">Methods</a>
+          <a href="#materials">Materials</a>
+        </div>
+      </nav>
+    </header>
+
+    <div
+      class="hero"
+      style={`--hero-image: url("${base}figures/figure-1.png") center right / cover no-repeat; --hero-image-mobile: url("${base}figures/figure-1.png") center / cover no-repeat;`}
+    >
+      <div class="hero-inner">
+        <p class="eyebrow">Adolescent mental health network study</p>
+        <h1>Emotional Distress Drives Adolescent Digital Use Symptom Networks</h1>
+        <p class="authors">
+          Jing Zhang, Ling Zhang, Xizhe Zhang - Nanjing Children's Hospital and Nanjing
+          Medical University
+        </p>
+        <div class="hero-actions" aria-label="Paper links">
+          <a class="button primary" href={`${base}Manuscript.docx`} download>Download manuscript</a>
+          <a class="button" href="#figures">View figures</a>
+          <a class="button" href="#materials">Data and code availability</a>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <div class="metrics" aria-label="Study scale">
+        <div class="metric">
+          <strong>10,356</strong>
+          <span>Chinese adolescents in the baseline school cohort</span>
+        </div>
+        <div class="metric">
+          <strong>6,092</strong>
+          <span>matched adolescents across two waves about one year apart</span>
+        </div>
+        <div class="metric">
+          <strong>147,506</strong>
+          <span>young adults in the Global Mind Project triangulation sample</span>
+        </div>
+        <div class="metric">
+          <strong>7,838</strong>
+          <span>complete UK Millennium Cohort Study cases in replication</span>
+        </div>
+      </div>
+
+      <section id="abstract">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Abstract</p>
+            <h2>Emotion, not digital use, sits upstream.</h2>
+          </div>
+          <p class="lead">
+            The paper combines item-level network control, longitudinal directionality,
+            Bayesian directed graphs and two external triangulations to locate the upstream
+            domain in adolescent digital-use-related symptom systems.
+          </p>
+        </div>
+        <div class="abstract">
+          <p class="abstract-text">
+            Adolescent problematic digital use rarely stands alone; it sits within a
+            broader system of emotional, sleep, diet, activity and behavioral symptoms,
+            and which domain drives system-level change is unclear. In a school-based
+            cohort of 10,356 Chinese adolescents, 6,092 matched across two waves, we
+            combined item-level network control with longitudinal directionality. The
+            baseline 104-node, six-domain network had a compact structural-control core:
+            diet, behavior and emotion items dominated the static topology yet were
+            distinct from the most central symptoms. Over time, emotional distress was
+            the strongest upstream predictor of change across digital use, insomnia,
+            behavior and diet, with behavior and activity downstream. A Bayesian directed
+            graph converged independently on the same emotion-outgoing pattern. The
+            emotional hub held across young adults in 240 countries, and a UK cohort
+            reproduced the screen-sink pattern.
+          </p>
+          <ul class="finding-list">
+            <li><strong>Keywords:</strong> emotional distress; adolescent digital use; symptom network; network control; cross-lagged panel network; Bayesian network</li>
+            <li><strong>Running title:</strong> Emotion in adolescent digital use networks</li>
+            <li><strong>Contact:</strong> zhangxizhe@njmu.edu.cn</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="findings">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Findings</p>
+            <h2>Static structure and temporal priority separate cleanly.</h2>
+          </div>
+          <p class="lead">
+            The study distinguishes nodes that dominate the instantaneous network topology
+            from domains that predict later system-wide change.
+          </p>
+        </div>
+        <ul class="finding-list">
+          <li>
+            <strong>A compact structural-control core sits outside centrality.</strong>
+            Diet, behavior and emotion items govern the static topology, while several
+            high-strength symptoms never enter the minimum dominating set.
+          </li>
+          <li>
+            <strong>Emotional distress is the strongest temporal driver.</strong>
+            Across two waves, Wave-1 emotional distress predicts later increases across
+            digital use, insomnia, behavior and diet more strongly than competing domains.
+          </li>
+          <li>
+            <strong>A Bayesian directed graph converges on emotion outflow.</strong>
+            Cross-sectional directional learning independently places emotional distress
+            on the source side and agrees closely with the longitudinal CLPN.
+          </li>
+          <li>
+            <strong>The pattern travels across cohorts.</strong>
+            The Global Mind Project reproduces an emotional hub across 240 countries, and
+            the UK Millennium Cohort Study confirms screen-related behavior as downstream.
+          </li>
+        </ul>
+      </section>
+
+      <section id="figures">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Figures</p>
+            <h2>Main results.</h2>
+          </div>
+          <p class="lead">
+            The figure set moves from baseline topology to temporal directionality,
+            independent directed checks and external replication.
+          </p>
+        </div>
+        <div class="figure-stack">
+          {mainFigures.map((figure) => (
+            <article class="figure-card">
+              <a class="figure-media" href={`${base}${figure.src}`} target="_blank" rel="noreferrer">
+                <img src={`${base}${figure.src}`} alt={`${figure.label}: ${figure.title}`} loading="lazy" />
+              </a>
+              <div class="figure-copy">
+                <span class="figure-label">{figure.label}</span>
+                <h3>{figure.title}</h3>
+                <p>{figure.caption}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="methods">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Methods</p>
+            <h2>Four complementary lenses.</h2>
+          </div>
+          <p class="lead">
+            The design combines static graph control, longitudinal prediction, directed
+            graphical modeling and external concept-level replication.
+          </p>
+        </div>
+        <div class="methods-grid">
+          <div class="method">
+            <b>Network reconstruction</b>
+            <p>
+              Item scores were transformed with a Gaussian-copula transform and estimated
+              using graphical Lasso with likelihood-based cross-validation.
+            </p>
+          </div>
+          <div class="method">
+            <b>Control analysis</b>
+            <p>
+              Minimum dominating sets, control frequency and module-control networks
+              identified structural levers in the baseline symptom topology.
+            </p>
+          </div>
+          <div class="method">
+            <b>Cross-lagged panel network</b>
+            <p>
+              Wave-3 domain scores were regressed on all Wave-1 domains with robust
+              standard errors and bootstrap confidence intervals for net directionality.
+            </p>
+          </div>
+          <div class="method">
+            <b>Bayesian directed graph</b>
+            <p>
+              A Hill-Climb BIC graph and bootstrap edge stability tested whether baseline
+              dependencies supported the same directional ordering.
+            </p>
+          </div>
+          <div class="method">
+            <b>Global Mind Project</b>
+            <p>
+              A 240-country young-adult sample tested whether the emotional hub generalized
+              across instruments, cultures and countries.
+            </p>
+          </div>
+          <div class="method">
+            <b>Millennium Cohort Study</b>
+            <p>
+              A UK longitudinal cohort tested whether internalizing distress and screen-use
+              directionality recurred from age 14 to age 17.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="supplement">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Supplement</p>
+            <h2>Additional figures.</h2>
+          </div>
+          <p class="lead">
+            Supporting analyses cover matching, robustness, alternative directional checks,
+            community structure, driver stability and null-model comparisons.
+          </p>
+        </div>
+        <div class="supplement-grid">
+          {supplementFigures.map((figure) => (
+            <a href={`${base}${figure.src}`} target="_blank" rel="noreferrer">
+              <img src={`${base}${figure.src}`} alt={figure.label} loading="lazy" />
+              <span>{figure.label}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section id="materials">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Materials</p>
+            <h2>Availability.</h2>
+          </div>
+          <p class="lead">
+            Public release is staged around ethics restrictions for individual-level data
+            and open release of derived group-level artifacts upon acceptance.
+          </p>
+        </div>
+        <div class="availability">
+          <div class="availability-block">
+            <h3>Data availability</h3>
+            <p>
+              Individual-level cohort data are restricted by ethics approval
+              2022-KY095-02. Derived group-level matrices, coefficients, bootstrap outputs,
+              Bayesian-network edge lists and machine-readable result tables are prepared
+              for public release upon acceptance.
+            </p>
+          </div>
+          <div class="availability-block">
+            <h3>Code availability</h3>
+            <p>
+              Analysis scripts for network reconstruction, cross-lagged panel networks,
+              Bayesian directed graphs, community detection, controllability analyses,
+              null models and figure generation are prepared for release upon acceptance.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>
+        Supported by NSFC-Jiangsu Joint Fund U24A20701 and HK RGC Strategic Target Grant
+        STG1/M-501/23-N.
+      </span>
+    </footer>
+  </body>
+</html>
