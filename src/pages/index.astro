@@ -64,13 +64,16 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         --ink: #152326;
         --muted: #5c6b6e;
         --paper: #fbfaf7;
+        --paper-alt: #f2f7f4;
         --panel: #ffffff;
         --line: #d9e0df;
         --teal: #2a9d8f;
         --coral: #d65f49;
         --gold: #c9952e;
+        --blue: #315f7a;
         --forest: #314d43;
         --shadow: 0 18px 55px rgba(21, 35, 38, 0.12);
+        --soft-shadow: 0 10px 30px rgba(21, 35, 38, 0.08);
       }
 
       * {
@@ -83,7 +86,9 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
 
       body {
         margin: 0;
-        background: var(--paper);
+        background:
+          linear-gradient(90deg, rgba(49, 77, 67, 0.035) 1px, transparent 1px) 0 0 / 80px 80px,
+          linear-gradient(180deg, #fbfaf7 0%, #f7faf7 42%, #fbfaf7 100%);
         color: var(--ink);
         font-family:
           Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -230,6 +235,7 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
       main {
         width: min(1180px, calc(100% - 32px));
         margin: 0 auto;
+        counter-reset: section-count;
       }
 
       .metrics {
@@ -245,9 +251,32 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
       }
 
       .metric {
+        position: relative;
         min-height: 118px;
-        padding: 22px;
+        padding: 24px 22px 22px;
         background: var(--panel);
+      }
+
+      .metric::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--teal);
+        content: "";
+      }
+
+      .metric:nth-child(2)::before {
+        background: var(--gold);
+      }
+
+      .metric:nth-child(3)::before {
+        background: var(--coral);
+      }
+
+      .metric:nth-child(4)::before {
+        background: var(--blue);
       }
 
       .metric strong {
@@ -265,8 +294,21 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
       }
 
       section {
+        position: relative;
+        counter-increment: section-count;
         padding: 76px 0;
         border-bottom: 1px solid var(--line);
+      }
+
+      section::before {
+        position: absolute;
+        inset: 0 calc(50% - 50vw);
+        z-index: -1;
+        content: "";
+      }
+
+      section:nth-of-type(even)::before {
+        background: rgba(242, 247, 244, 0.78);
       }
 
       .section-head {
@@ -274,7 +316,8 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         grid-template-columns: minmax(340px, 0.44fr) minmax(0, 1fr);
         gap: 64px;
         align-items: start;
-        margin-bottom: 34px;
+        margin-bottom: 38px;
+        padding-top: 4px;
       }
 
       h2 {
@@ -286,15 +329,32 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
       }
 
       .section-kicker {
-        margin: 7px 0 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 12px;
         color: var(--coral);
         font-size: 0.8rem;
         font-weight: 800;
         text-transform: uppercase;
       }
 
+      .section-kicker::before {
+        color: var(--teal);
+        content: counter(section-count, decimal-leading-zero);
+      }
+
+      .section-kicker::after {
+        width: 38px;
+        height: 1px;
+        background: currentColor;
+        content: "";
+      }
+
       .lead {
         max-width: 760px;
+        border-left: 3px solid rgba(42, 157, 143, 0.28);
+        padding-left: 22px;
         margin: 0;
         color: #344447;
         font-size: 1.08rem;
@@ -302,12 +362,14 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
 
       .abstract {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
-        gap: 28px;
+        grid-template-columns: minmax(0, 1fr) minmax(310px, 390px);
+        gap: 34px;
         align-items: start;
       }
 
       .abstract-text {
+        border-top: 1px solid var(--line);
+        padding-top: 24px;
         margin: 0;
         color: #263638;
         font-size: 1.05rem;
@@ -327,6 +389,52 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         padding: 14px 16px;
         background: #eef6f3;
         color: #253638;
+      }
+
+      #findings .finding-list {
+        counter-reset: finding-count;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      #findings .finding-list li {
+        position: relative;
+        counter-increment: finding-count;
+        min-height: 190px;
+        border: 1px solid rgba(217, 224, 223, 0.9);
+        border-top: 5px solid var(--teal);
+        border-left: 0;
+        border-radius: 8px;
+        padding: 28px 24px 24px;
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: var(--soft-shadow);
+      }
+
+      #findings .finding-list li:nth-child(2) {
+        border-top-color: var(--coral);
+      }
+
+      #findings .finding-list li:nth-child(3) {
+        border-top-color: var(--gold);
+      }
+
+      #findings .finding-list li:nth-child(4) {
+        border-top-color: var(--blue);
+      }
+
+      #findings .finding-list li::before {
+        display: inline-grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        margin-bottom: 18px;
+        border: 1px solid rgba(42, 157, 143, 0.26);
+        border-radius: 8px;
+        background: #eef6f3;
+        color: var(--forest);
+        font-size: 0.82rem;
+        font-weight: 820;
+        content: counter(finding-count, decimal-leading-zero);
       }
 
       .finding-list strong {
@@ -349,6 +457,16 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         box-shadow: 0 12px 35px rgba(21, 35, 38, 0.08);
       }
 
+      .figure-card:nth-child(even) {
+        grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+      }
+
+      .figure-card:nth-child(even) .figure-media {
+        order: 2;
+        border-right: 0;
+        border-left: 1px solid var(--line);
+      }
+
       .figure-media {
         display: grid;
         min-height: 360px;
@@ -364,7 +482,10 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
       }
 
       .figure-copy {
-        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 32px;
       }
 
       .figure-label {
@@ -387,17 +508,52 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
       }
 
       .methods-grid {
+        counter-reset: method-count;
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 18px;
       }
 
       .method {
+        position: relative;
+        counter-increment: method-count;
         min-height: 190px;
-        border: 1px solid var(--line);
+        border: 1px solid rgba(217, 224, 223, 0.94);
         border-radius: 8px;
-        padding: 22px;
-        background: var(--panel);
+        padding: 52px 22px 22px;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: var(--soft-shadow);
+      }
+
+      .method::before {
+        position: absolute;
+        top: 18px;
+        left: 22px;
+        color: var(--gold);
+        font-size: 0.78rem;
+        font-weight: 840;
+        content: "METHOD " counter(method-count, decimal-leading-zero);
+      }
+
+      .method::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 4px;
+        border-radius: 8px 8px 0 0;
+        background: var(--forest);
+        content: "";
+      }
+
+      .method:nth-child(2)::after,
+      .method:nth-child(5)::after {
+        background: var(--teal);
+      }
+
+      .method:nth-child(3)::after,
+      .method:nth-child(6)::after {
+        background: var(--coral);
       }
 
       .method b {
@@ -413,8 +569,8 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
 
       .supplement-grid {
         display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 12px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
       }
 
       .supplement-grid a {
@@ -422,8 +578,16 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         overflow: hidden;
         border: 1px solid var(--line);
         border-radius: 8px;
-        background: var(--panel);
+        background: rgba(255, 255, 255, 0.9);
         text-decoration: none;
+        transition:
+          border-color 160ms ease,
+          transform 160ms ease;
+      }
+
+      .supplement-grid a:hover {
+        border-color: rgba(42, 157, 143, 0.55);
+        transform: translateY(-2px);
       }
 
       .supplement-grid img {
@@ -448,9 +612,13 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
 
       .availability-block {
         border-top: 4px solid var(--coral);
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        border-left: 1px solid var(--line);
         border-radius: 8px;
         padding: 24px;
-        background: var(--panel);
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: var(--soft-shadow);
       }
 
       .availability-block:nth-child(2) {
@@ -514,6 +682,19 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         .figure-media {
           border-right: 0;
           border-bottom: 1px solid var(--line);
+        }
+
+        .figure-card:nth-child(even) {
+          grid-template-columns: 1fr;
+        }
+
+        .figure-card:nth-child(even) .figure-media {
+          order: initial;
+          border-left: 0;
+        }
+
+        #findings .finding-list {
+          grid-template-columns: 1fr;
         }
 
         .supplement-grid {
