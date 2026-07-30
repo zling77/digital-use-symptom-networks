@@ -9,35 +9,35 @@ const mainFigures = [
     label: 'Figure 1',
     title: 'Baseline six-domain symptom network and structural-control profile',
     caption:
-      'The baseline network contained 104 nodes across six domains. A compact driver core from diet, behavior and emotion governed static structural control while remaining distinct from high-strength symptoms.',
+      'The 104-node baseline network had a compact three-node structural-control core from diet, behavior and emotion, distinct from the highest-strength symptoms.',
   },
   {
     src: 'figures/figure-2.png',
     label: 'Figure 2',
     title: 'Cross-lagged panel network across two waves',
     caption:
-      'In 6,092 matched adolescents, emotional distress was the strongest net temporal source. Behavior and physical activity sat downstream, and digital use did not lead the system.',
+      'In 6,092 matched adolescents, DASS was the strongest net temporal source, SDQ and ACT were net sinks, and digital use showed no net directionality.',
   },
   {
     src: 'figures/figure-3.png',
     label: 'Figure 3',
-    title: 'Bayesian directed graph convergence',
+    title: 'Exploratory Bayesian directed graph convergence',
     caption:
-      'A Bayesian directed graph learned from baseline scores converged with the longitudinal CLPN pattern, placing emotional distress on the source side of the network.',
+      'An exploratory Bayesian DAG learned from baseline scores qualitatively converged with the longitudinal CLPN ordering, placing DASS on the source side.',
   },
   {
     src: 'figures/figure-4.png',
     label: 'Figure 4',
-    title: 'Cross-cultural triangulation in young adults',
+    title: 'Pooled multinational young-adult triangulation',
     caption:
-      'Across 147,506 young adults from 240 countries, the emotional domain was the strongest hub, while adult social-media frequency was weakly coupled to the broader health network.',
+      'Across 147,506 young adults aged 18-24 years from 240 countries, the emotional domain was the strongest undirected hub in the mapped network.',
   },
   {
     src: 'figures/figure-5.png',
     label: 'Figure 5',
-    title: 'Independent UK longitudinal replication',
+    title: 'Independent UK longitudinal cohort',
     caption:
-      'The Millennium Cohort Study confirmed the screen-sink pattern from age 14 to 17, with internalizing distress among the upstream sources.',
+      'The Millennium Cohort Study supported the screen-as-sink ordering, while the upstream side was shared by internalizing and externalizing symptoms.',
   },
 ];
 
@@ -782,11 +782,11 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         </div>
         <div class="metric">
           <strong>147,506</strong>
-          <span>young adults in the Global Mind Project triangulation sample</span>
+          <span>young adults aged 18-24 years in the Global Mind Project sample</span>
         </div>
         <div class="metric">
-          <strong>7,838</strong>
-          <span>complete UK Millennium Cohort Study cases in replication</span>
+          <strong>9,520</strong>
+          <span>UK Millennium Cohort Study adolescents linked from age 14 to age 17</span>
         </div>
       </div>
 
@@ -798,25 +798,27 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
           </div>
           <p class="lead">
             The paper combines item-level network control, longitudinal directionality,
-            Bayesian directed graphs and two external triangulations to locate the upstream
+            an exploratory Bayesian directed graph and two external triangulations to locate the upstream
             domain in adolescent digital-use-related symptom systems.
           </p>
         </div>
         <div class="abstract">
           <p class="abstract-text">
             Adolescent problematic digital use rarely stands alone; it sits within a
-            broader system of emotional, sleep, diet, activity and behavioral symptoms,
-            and which domain drives system-level change is unclear. In a school-based
-            cohort of 10,356 Chinese adolescents, 6,092 matched across two waves, we
-            combined item-level network control with longitudinal directionality. The
-            baseline 104-node, six-domain network had a compact structural-control core:
-            diet, behavior and emotion items dominated the static topology yet were
-            distinct from the most central symptoms. Over time, emotional distress was
-            the strongest upstream predictor of change across digital use, insomnia,
-            behavior and diet, with behavior and activity downstream. A Bayesian directed
-            graph converged independently on the same emotion-outgoing pattern. The
-            emotional hub held across young adults in 240 countries, and a UK cohort
-            reproduced the screen-sink pattern.
+            broader system spanning emotional distress, insomnia, disordered eating,
+            physical inactivity and behavioral symptoms, and which domain drives
+            system-level change is unclear. In a school-based cohort of 10,356 Chinese
+            adolescents, of whom 6,092 were matched across two waves, we combined item-level
+            network control with longitudinal directionality. The baseline 104-node,
+            six-domain network had a compact structural-control core: diet, behavioral
+            and emotional items dominated the structural-control topology, yet this core
+            was distinct from the highest-strength symptoms, which primarily reflected
+            prolonged online use, anxiety-related worry, concentration difficulties and
+            negative mood. Longitudinally, emotional distress was the strongest upstream
+            predictor of later change across digital use, insomnia, behavior and diet.
+            An exploratory Bayesian directed graph converged on the same emotion-as-source
+            pattern. The emotional hub generalized to a multinational young-adult sample,
+            and an independent UK cohort supported the screen-as-sink ordering.
           </p>
           <ul class="finding-list">
             <li><strong>Keywords:</strong> emotional distress; adolescent digital use; symptom network; network control; cross-lagged panel network; Bayesian network</li>
@@ -833,30 +835,34 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
             <h2>Static structure and temporal priority separate cleanly.</h2>
           </div>
           <p class="lead">
-            The study distinguishes nodes that dominate the instantaneous network topology
-            from domains that predict later system-wide change.
+            The revised manuscript separates structural-control topology, temporal
+            directionality and external construct-level support more explicitly.
           </p>
         </div>
         <ul class="finding-list">
           <li>
             <strong>A compact structural-control core sits outside centrality.</strong>
-            Diet, behavior and emotion items govern the static topology, while several
-            high-strength symptoms never enter the minimum dominating set.
+            DIET22, SDQ18 and DASS14 govern the structural-control topology, while the
+            highest-strength symptoms mainly reflect prolonged online use, worry,
+            concentration difficulties and negative mood.
           </li>
           <li>
             <strong>Emotional distress is the strongest temporal driver.</strong>
-            Across two waves, Wave-1 emotional distress predicts later increases across
-            digital use, insomnia, behavior and diet more strongly than competing domains.
+            Across two waves, Wave-1 DASS predicts later change across CIAS, ISI, SDQ and
+            DIET; SDQ and ACT sit downstream as net sinks, while CIAS shows no net
+            directionality.
           </li>
           <li>
-            <strong>A Bayesian directed graph converges on emotion outflow.</strong>
-            Cross-sectional directional learning independently places emotional distress
-            on the source side and agrees closely with the longitudinal CLPN.
+            <strong>An exploratory Bayesian graph converges qualitatively.</strong>
+            Baseline conditional-dependence learning places DASS on the source side and
+            agrees with the longitudinal CLPN ordering, while using a different definition
+            of direction.
           </li>
           <li>
-            <strong>The pattern travels across cohorts.</strong>
-            The Global Mind Project reproduces an emotional hub across 240 countries, and
-            the UK Millennium Cohort Study confirms screen-related behavior as downstream.
+            <strong>External analyses support the directional anchors.</strong>
+            The Global Mind Project recovers an emotional hub, and the UK Millennium
+            Cohort Study supports the screen-as-sink pattern while broadening the upstream
+            side to internalizing and externalizing symptoms.
           </li>
         </ul>
       </section>
@@ -869,7 +875,7 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
           </div>
           <p class="lead">
             The figure set moves from baseline topology to temporal directionality,
-            independent directed checks and external replication.
+            exploratory directed checks and external construct-level support.
           </p>
         </div>
         <div class="figure-stack">
@@ -895,8 +901,8 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
             <h2>Four complementary lenses.</h2>
           </div>
           <p class="lead">
-            The design combines static graph control, longitudinal prediction, directed
-            graphical modeling and external concept-level replication.
+            The design combines static graph control, longitudinal prediction, exploratory
+            directed graphical modeling and external concept-level triangulation.
           </p>
         </div>
         <div class="methods-grid">
@@ -931,15 +937,15 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
           <div class="method">
             <b>Global Mind Project</b>
             <p>
-              A 240-country young-adult sample tested whether the emotional hub generalized
-              across instruments, cultures and countries.
+              A pooled multinational young-adult sample tested whether the emotional hub
+              generalized across instruments, cultures and countries.
             </p>
           </div>
           <div class="method">
             <b>Millennium Cohort Study</b>
             <p>
-              A UK longitudinal cohort tested whether internalizing distress and screen-use
-              directionality recurred from age 14 to age 17.
+              A UK longitudinal cohort tested whether the screen-as-sink ordering recurred
+              from age 14 to 17, while allowing upstream sources to differ by construct.
             </p>
           </div>
         </div>
