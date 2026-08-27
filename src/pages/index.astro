@@ -7,37 +7,37 @@ const mainFigures = [
   {
     src: 'figures/figure-1.png',
     label: 'Figure 1',
-    title: 'Baseline six-domain symptom network and structural-control profile',
+    title: 'Longitudinal cross-lagged network in SEARCH',
     caption:
-      'The 104-node baseline network had a compact three-node structural-control core from diet, behavior and emotion, distinct from the highest-strength symptoms.',
+      'Among 6,092 adolescents reassessed after approximately one year, emotional distress had the largest positive net directionality (+0.249, 95% CI 0.086 to 0.418), whereas problematic digital use showed no clear net directionality.',
   },
   {
     src: 'figures/figure-2.png',
     label: 'Figure 2',
-    title: 'Cross-lagged panel network across two waves',
+    title: 'Longitudinal directionality in the UK Millennium Cohort Study',
     caption:
-      'In 6,092 matched adolescents, DASS was the strongest net temporal source, SDQ and ACT were net sinks, and digital use showed no net directionality.',
+      'From age 14 to 17, social-media use had the most negative net directionality (−0.211, 95% CI −0.260 to −0.139), while hyperactivity/inattention had the largest positive value. The cross-lagged analysis included 7,838 complete cases.',
   },
   {
     src: 'figures/figure-3.png',
     label: 'Figure 3',
-    title: 'Exploratory Bayesian directed graph convergence',
+    title: 'Baseline structural network and structural-control profile',
     caption:
-      'An exploratory Bayesian DAG learned from baseline scores qualitatively converged with the longitudinal CLPN ordering, placing DASS on the source side.',
+      'The 104-item SEARCH network had ten equivalent three-node minimum dominating sets. DIET22, SDQ18 and DASS14 were the most frequent structural-control nodes; these topological quantities are not temporal or causal effects.',
   },
   {
     src: 'figures/figure-4.png',
     label: 'Figure 4',
-    title: 'Pooled multinational young-adult triangulation',
+    title: 'Exploratory Bayesian comparison within SEARCH',
     caption:
-      'Across 147,506 young adults aged 18-24 years from 240 countries, the emotional domain was the strongest undirected hub in the mapped network.',
+      'Bayesian net out-degree was positively correlated with longitudinal net directionality across six domains, but the estimate was imprecise (r = 0.750, P = 0.086; bootstrap 95% CI −0.604 to 0.995). All seven skeleton edges were reversible in the CPDAG.',
   },
   {
     src: 'figures/figure-5.png',
     label: 'Figure 5',
-    title: 'Independent UK longitudinal cohort',
+    title: 'Construct-level triangulation in the Global Mind Project',
     caption:
-      'The Millennium Cohort Study supported the screen-as-sink ordering, while the upstream side was shared by internalizing and externalizing symptoms.',
+      'In 147,506 young adults aged 18–24 years, emotion had the highest undirected strength (0.726, 95% CI 0.714 to 0.738), whereas social-media frequency had the lowest strength.',
   },
 ];
 
@@ -55,10 +55,10 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
-      content="Paper website for Emotional Distress Drives Adolescent Digital Use Symptom Networks."
+      content="Paper website and reviewer materials for Emotional distress drives change in adolescent problematic digital use and related symptoms."
     />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
-    <title>Emotional Distress Drives Adolescent Digital Use Symptom Networks</title>
+    <title>Emotional distress drives change in adolescent problematic digital use and related symptoms</title>
     <style>
       :root {
         --ink: #152326;
@@ -634,6 +634,27 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         color: var(--muted);
       }
 
+      .resource-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .resource-link {
+        display: inline-flex;
+        min-height: 40px;
+        align-items: center;
+        border: 1px solid rgba(49, 77, 67, 0.24);
+        border-radius: 8px;
+        padding: 8px 12px;
+        background: #f5f8f6;
+        color: var(--forest);
+        font-size: 0.9rem;
+        font-weight: 760;
+        text-decoration: none;
+      }
+
       footer {
         width: min(1180px, calc(100% - 32px));
         margin: 0 auto;
@@ -757,15 +778,15 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
     >
       <div class="hero-inner">
         <p class="eyebrow">Adolescent mental health network study</p>
-        <h1>Emotional Distress Drives Adolescent Digital Use Symptom Networks</h1>
+        <h1>Emotional distress drives change in adolescent problematic digital use and related symptoms</h1>
         <p class="authors">
           Jing Zhang, Ling Zhang, Xizhe Zhang - Nanjing Children's Hospital and Nanjing
           Medical University
         </p>
         <div class="hero-actions" aria-label="Paper links">
-          <a class="button primary" href={`${base}Manuscript.docx`} download>Download manuscript</a>
+          <a class="button primary" href={`${base}Manuscript.pdf`} target="_blank" rel="noreferrer">Read manuscript</a>
           <a class="button" href="#figures">View figures</a>
-          <a class="button" href="#materials">Data and code availability</a>
+          <a class="button" href="#materials">Reviewer materials</a>
         </div>
       </div>
     </div>
@@ -785,8 +806,8 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
           <span>young adults aged 18-24 years in the Global Mind Project sample</span>
         </div>
         <div class="metric">
-          <strong>9,520</strong>
-          <span>UK Millennium Cohort Study adolescents linked from age 14 to age 17</span>
+          <strong>7,838</strong>
+          <span>complete cases in the UK Millennium Cohort Study analysis</span>
         </div>
       </div>
 
@@ -794,35 +815,32 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         <div class="section-head">
           <div>
             <p class="section-kicker">Abstract</p>
-            <h2>Emotion, not digital use, sits upstream.</h2>
+            <h2>Temporal ordering across three cohort resources.</h2>
           </div>
           <p class="lead">
-            The paper combines item-level network control, longitudinal directionality,
-            an exploratory Bayesian directed graph and two external triangulations to locate the upstream
-            domain in adolescent digital-use-related symptom systems.
+            The study distinguishes longitudinal prediction from cross-sectional network
+            structure and compares problematic digital use with direct measures of
+            social-media use and gaming.
           </p>
         </div>
         <div class="abstract">
           <p class="abstract-text">
-            Adolescent problematic digital use rarely stands alone; it sits within a
-            broader system spanning emotional distress, insomnia, disordered eating,
-            physical inactivity and behavioral symptoms, and which domain drives
-            system-level change is unclear. In a school-based cohort of 10,356 Chinese
-            adolescents, of whom 6,092 were matched across two waves, we combined item-level
-            network control with longitudinal directionality. The baseline 104-node,
-            six-domain network had a compact structural-control core: diet, behavioral
-            and emotional items dominated the structural-control topology, yet this core
-            was distinct from the highest-strength symptoms, which primarily reflected
-            prolonged online use, anxiety-related worry, concentration difficulties and
-            negative mood. Longitudinally, emotional distress was the strongest upstream
-            predictor of later change across digital use, insomnia, behavior and diet.
-            An exploratory Bayesian directed graph converged on the same emotion-as-source
-            pattern. The emotional hub generalized to a multinational young-adult sample,
-            and an independent UK cohort supported the screen-as-sink ordering.
+            Whether adolescent problematic digital use precedes or follows broader
+            mental-health difficulties remains unresolved. In SEARCH (N = 10,356;
+            n = 6,092 reassessed about one year later), emotional distress was the
+            principal temporal driver (+0.249, 95% CI 0.086 to 0.418), predicting later
+            problematic digital use, insomnia, behavioural difficulties and diet,
+            whereas digital use was neutral. In MCS (n = 7,838), social-media use was the
+            strongest sink (−0.211, 95% CI −0.260 to −0.139), whereas
+            hyperactivity/inattention was the leading source. Structural control differed
+            from temporal directionality. The within-SEARCH Bayesian comparison was
+            directionally similar but imprecise. In GMP (n = 147,506), emotion had the
+            highest cross-sectional strength. Together, the results place screen-related
+            behaviours within a broader pattern of emotional and behavioural difficulties.
           </p>
           <ul class="finding-list">
             <li><strong>Keywords:</strong> emotional distress; adolescent digital use; symptom network; network control; cross-lagged panel network; Bayesian network</li>
-            <li><strong>Running title:</strong> Emotion in adolescent digital use networks</li>
+            <li><strong>Running title:</strong> Temporal ordering of adolescent digital use</li>
             <li><strong>Contact:</strong> zhangxizhe@njmu.edu.cn</li>
           </ul>
         </div>
@@ -832,37 +850,40 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         <div class="section-head">
           <div>
             <p class="section-kicker">Findings</p>
-            <h2>Static structure and temporal priority separate cleanly.</h2>
+            <h2>Longitudinal and structural analyses answer different questions.</h2>
           </div>
           <p class="lead">
-            The revised manuscript separates structural-control topology, temporal
-            directionality and external construct-level support more explicitly.
+            The longitudinal analyses estimate prospective ordering. The structural and
+            Bayesian analyses provide complementary, within-sample descriptions.
           </p>
         </div>
         <ul class="finding-list">
           <li>
-            <strong>A compact structural-control core sits outside centrality.</strong>
-            DIET22, SDQ18 and DASS14 govern the structural-control topology, while the
-            highest-strength symptoms mainly reflect prolonged online use, worry,
-            concentration difficulties and negative mood.
+            <strong>Emotional distress had the largest outgoing prediction in SEARCH.</strong>
+            Its net directionality was +0.249 (95% CI 0.086 to 0.418). Problematic
+            digital use showed no clear net directionality.
           </li>
           <li>
-            <strong>Emotional distress is the strongest temporal driver.</strong>
-            Across two waves, Wave-1 DASS predicts later change across CIAS, ISI, SDQ and
-            DIET; SDQ and ACT sit downstream as net sinks, while CIAS shows no net
-            directionality.
+            <strong>Screen-related behaviour was downstream in MCS.</strong>
+            Social-media use had the most negative net directionality (−0.211, 95% CI
+            −0.260 to −0.139), whereas hyperactivity/inattention had the largest positive
+            value (+0.177, 95% CI 0.098 to 0.251).
           </li>
           <li>
-            <strong>An exploratory Bayesian graph converges qualitatively.</strong>
-            Baseline conditional-dependence learning places DASS on the source side and
-            agrees with the longitudinal CLPN ordering, while using a different definition
-            of direction.
+            <strong>Structural control was distinct from temporal directionality.</strong>
+            DIET22, SDQ18 and DASS14 were the most frequent members of the ten equivalent
+            three-node minimum dominating sets in the baseline SEARCH network.
           </li>
           <li>
-            <strong>External analyses support the directional anchors.</strong>
-            The Global Mind Project recovers an emotional hub, and the UK Millennium
-            Cohort Study supports the screen-as-sink pattern while broadening the upstream
-            side to internalizing and externalizing symptoms.
+            <strong>The Bayesian comparison was positive but imprecise.</strong>
+            Net out-degree correlated with longitudinal net directionality (r = 0.750,
+            two-sided P = 0.086; bootstrap 95% CI −0.604 to 0.995). All seven skeleton
+            edges were reversible in the CPDAG.
+          </li>
+          <li>
+            <strong>Emotion had the highest cross-sectional strength in GMP.</strong>
+            Emotional symptoms had a strength of 0.726 (95% CI 0.714 to 0.738), whereas
+            social-media frequency had the lowest strength (0.075, 95% CI 0.067 to 0.084).
           </li>
         </ul>
       </section>
@@ -874,8 +895,8 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
             <h2>Main results.</h2>
           </div>
           <p class="lead">
-            The figure set moves from baseline topology to temporal directionality,
-            exploratory directed checks and external construct-level support.
+            The sequence follows the submitted manuscript: SEARCH longitudinal results,
+            MCS replication, SEARCH structure, Bayesian comparison and GMP triangulation.
           </p>
         </div>
         <div class="figure-stack">
@@ -898,11 +919,11 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         <div class="section-head">
           <div>
             <p class="section-kicker">Methods</p>
-            <h2>Four complementary lenses.</h2>
+            <h2>Three cohorts and complementary network analyses.</h2>
           </div>
           <p class="lead">
-            The design combines static graph control, longitudinal prediction, exploratory
-            directed graphical modeling and external concept-level triangulation.
+            SEARCH provides item-level structure and longitudinal prediction. MCS and GMP
+            provide longitudinal and cross-sectional construct-level comparisons.
           </p>
         </div>
         <div class="methods-grid">
@@ -930,15 +951,15 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
           <div class="method">
             <b>Bayesian directed graph</b>
             <p>
-              A Hill-Climb BIC graph and bootstrap edge stability tested whether baseline
-              dependencies supported the same directional ordering.
+              A Hill-Climb BIC graph and bootstrap edge stability described baseline
+              conditional dependencies and their relation to longitudinal ordering.
             </p>
           </div>
           <div class="method">
             <b>Global Mind Project</b>
             <p>
-              A pooled multinational young-adult sample tested whether the emotional hub
-              generalized across instruments, cultures and countries.
+              A pooled young-adult sample provided a cross-sectional comparison of
+              construct-level strength across instruments and settings.
             </p>
           </div>
           <div class="method">
@@ -979,28 +1000,37 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
             <h2>Availability.</h2>
           </div>
           <p class="lead">
-            Public release is staged around ethics restrictions for individual-level data
-            and open release of derived group-level artifacts upon acceptance.
+            Reviewer materials include the manuscript, supplementary information,
+            machine-readable results and analysis-code archives.
           </p>
         </div>
         <div class="availability">
           <div class="availability-block">
             <h3>Data availability</h3>
             <p>
-              Individual-level cohort data are restricted by ethics approval
-              2022-KY095-02. Derived group-level matrices, coefficients, bootstrap outputs,
-              Bayesian-network edge lists and machine-readable result tables are prepared
-              for public release upon acceptance.
+              Individual-level SEARCH data are restricted by the ethics approval and
+              participant-consent conditions. Global Mind Project data are available from
+              Sapien Labs, and Millennium Cohort Study data are available from the UK Data
+              Service. Derived outputs are supplied in Supplementary Data 1 and the code
+              archives below.
             </p>
           </div>
           <div class="availability-block">
             <h3>Code availability</h3>
             <p>
-              Analysis scripts for network reconstruction, cross-lagged panel networks,
-              Bayesian directed graphs, community detection, controllability analyses,
-              null models and figure generation are prepared for release upon acceptance.
+              Analysis scripts for the reported SEARCH analyses are supplied in the main
+              code archive. External GMP and MCS scripts are supplied in a separate
+              external-validation archive.
             </p>
           </div>
+        </div>
+        <div class="resource-links" aria-label="Reviewer downloads">
+          <a class="resource-link" href={`${base}Manuscript.pdf`} target="_blank" rel="noreferrer">Manuscript PDF</a>
+          <a class="resource-link" href={`${base}Manuscript.docx`} download>Editable manuscript</a>
+          <a class="resource-link" href={`${base}Supplementary_Information.pdf`} target="_blank" rel="noreferrer">Supplementary Information</a>
+          <a class="resource-link" href={`${base}Supplementary_Data_1.zip`} download>Supplementary Data 1</a>
+          <a class="resource-link" href={`${base}04_Code_Main.zip`} download>Main analysis code</a>
+          <a class="resource-link" href={`${base}06_External_validation_code_GMP_MCS.zip`} download>External validation code</a>
         </div>
       </section>
     </main>
