@@ -3,6 +3,9 @@ const base = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
 
+const paperTitle = 'Emotional distress predicts change in adolescent problematic digital use and related symptoms';
+const abstract = 'Whether adolescent problematic digital use precedes or follows broader mental health difficulties remains unresolved. In the School-based Evaluation Advancing Response for Child Health (SEARCH) cohort in China (N = 10,356; n = 6,092 reassessed one year later), a cross-lagged panel network (CLPN) showed that emotional distress had the strongest positive net directionality (+0.249, 95% CI 0.086 to 0.418) and predicted later problematic digital use, insomnia, broad difficulties and diet. Problematic digital use showed no significant net directionality. In the UK Millennium Cohort Study (n = 7,838), social media use was the strongest net sink (−0.211, 95% CI −0.260 to −0.139), whereas hyperactivity/inattention was the leading net source. Static structural-control positions differed from CLPN net directionality. Bayesian net out-degree showed a positive but imprecise association with CLPN net directionality. In the Global Mind Project (n=147,506), emotion had the highest cross-sectional network strength. Across longitudinal cohorts, psychological difficulties occupied leading net source positions, whereas screen-related measures did not.';
+
 const mainFigures = [
   {
     src: 'figures/figure-1.png',
@@ -23,19 +26,19 @@ const mainFigures = [
     label: 'Figure 3',
     title: 'Baseline structural network and structural-control profile',
     caption:
-      'The 104-item SEARCH network had ten equivalent three-node minimum dominating sets. DIET22, SDQ18 and DASS14 were the most frequent structural-control nodes; these topological quantities are not temporal or causal effects.',
+      'The 104-item SEARCH network had ten equivalent three-node minimum dominating sets. DIET22, SDQ18 and DASS14 were the most frequent structural-control nodes. Structural control and longitudinal prediction identified different positions in the symptom network.',
   },
   {
     src: 'figures/figure-4.png',
     label: 'Figure 4',
     title: 'Exploratory Bayesian comparison within SEARCH',
     caption:
-      'Bayesian net out-degree was positively correlated with longitudinal net directionality across six domains, but the estimate was imprecise (r = 0.750, P = 0.086; bootstrap 95% CI −0.604 to 0.995). All seven skeleton edges were reversible in the CPDAG.',
+      'Bayesian net out-degree was positively correlated with CLPN net directionality across six domains, although the estimate was imprecise (r = 0.750, two-sided P = 0.086; bootstrap 95% CI −0.604 to 0.995). All seven skeleton edges were reversible in the CPDAG.',
   },
   {
     src: 'figures/figure-5.png',
     label: 'Figure 5',
-    title: 'Construct-level triangulation in the Global Mind Project',
+    title: 'Cross-sectional construct-level comparison in GMP',
     caption:
       'In 147,506 young adults aged 18–24 years, emotion had the highest undirected strength (0.726, 95% CI 0.714 to 0.738), whereas social-media frequency had the lowest strength.',
   },
@@ -55,10 +58,10 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
-      content="Paper website and reviewer materials for Emotional distress drives change in adolescent problematic digital use and related symptoms."
+      content={`Paper website and reviewer materials for ${paperTitle}.`}
     />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
-    <title>Emotional distress drives change in adolescent problematic digital use and related symptoms</title>
+    <title>{paperTitle}</title>
     <style>
       :root {
         --ink: #152326;
@@ -864,10 +867,11 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
       <div class="hero-inner">
         <div class="hero-copy">
           <p class="eyebrow">Adolescent mental health network study</p>
-          <h1>Emotional distress drives change in adolescent problematic digital use and related symptoms</h1>
+          <h1>{paperTitle}</h1>
           <p class="authors">
             <span class="author-names">Jing Zhang · Ling Zhang · Xizhe Zhang</span>
-            <span class="affiliation">Nanjing Children's Hospital · Nanjing Medical University</span>
+            <span class="affiliation">Nanjing Children's Hospital · School of Biomedical Engineering and Informatics · Nanjing Brain Hospital</span>
+            <span class="affiliation">Nanjing Medical University, Nanjing, China</span>
           </p>
           <div class="hero-actions" aria-label="Paper links">
             <a class="button primary" href={`${base}Manuscript.pdf`} target="_blank" rel="noreferrer">Read manuscript</a>
@@ -912,21 +916,10 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         </div>
         <div class="abstract">
           <p class="abstract-text">
-            Whether adolescent problematic digital use precedes or follows broader
-            mental-health difficulties remains unresolved. In SEARCH (N = 10,356;
-            n = 6,092 reassessed about one year later), emotional distress was the
-            principal temporal driver (+0.249, 95% CI 0.086 to 0.418), predicting later
-            problematic digital use, insomnia, behavioural difficulties and diet,
-            whereas digital use was neutral. In MCS (n = 7,838), social-media use was the
-            strongest sink (−0.211, 95% CI −0.260 to −0.139), whereas
-            hyperactivity/inattention was the leading source. Structural control differed
-            from temporal directionality. The within-SEARCH Bayesian comparison was
-            directionally similar but imprecise. In GMP (n = 147,506), emotion had the
-            highest cross-sectional strength. Together, the results place screen-related
-            behaviours within a broader pattern of emotional and behavioural difficulties.
+            {abstract}
           </p>
           <ul class="finding-list">
-            <li><strong>Keywords:</strong> emotional distress; adolescent digital use; symptom network; network control; cross-lagged panel network; Bayesian network</li>
+            <li><strong>Keywords:</strong> adolescent mental health; emotional distress; problematic digital use; social media use; cross-lagged panel network; network control</li>
             <li><strong>Running title:</strong> Temporal ordering of adolescent digital use</li>
             <li><strong>Contact:</strong> zhangxizhe@njmu.edu.cn</li>
           </ul>
@@ -951,10 +944,10 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
             digital use showed no clear net directionality.
           </li>
           <li>
-            <strong>Screen-related behaviour was downstream in MCS.</strong>
+            <strong>Social media use and gaming occupied net sink positions in MCS.</strong>
             Social-media use had the most negative net directionality (−0.211, 95% CI
             −0.260 to −0.139), whereas hyperactivity/inattention had the largest positive
-            value (+0.177, 95% CI 0.098 to 0.251).
+            value (+0.177, 95% CI 0.105 to 0.255).
           </li>
           <li>
             <strong>Structural control was distinct from temporal directionality.</strong>
@@ -970,7 +963,7 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
           <li>
             <strong>Emotion had the highest cross-sectional strength in GMP.</strong>
             Emotional symptoms had a strength of 0.726 (95% CI 0.714 to 0.738), whereas
-            social-media frequency had the lowest strength (0.075, 95% CI 0.067 to 0.084).
+            social-media frequency had the lowest strength (0.075, 95% CI 0.065 to 0.085).
           </li>
         </ul>
       </section>
@@ -982,8 +975,9 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
             <h2>Main results.</h2>
           </div>
           <p class="lead">
-            The sequence follows the submitted manuscript: SEARCH longitudinal results,
-            MCS replication, SEARCH structure, Bayesian comparison and GMP triangulation.
+            The sequence follows the manuscript: SEARCH longitudinal results,
+            MCS longitudinal analysis, SEARCH structure, Bayesian comparison and GMP
+            cross-sectional comparison.
           </p>
         </div>
         <div class="figure-stack">
@@ -1025,7 +1019,7 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
             <b>Control analysis</b>
             <p>
               Minimum dominating sets, control frequency and module-control networks
-              identified structural levers in the baseline symptom topology.
+              described structural coverage in the baseline symptom network.
             </p>
           </div>
           <div class="method">
@@ -1052,8 +1046,9 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
           <div class="method">
             <b>Millennium Cohort Study</b>
             <p>
-              A UK longitudinal cohort tested whether the screen-as-sink ordering recurred
-              from age 14 to 17, while allowing upstream sources to differ by construct.
+              A six-construct CLPN estimated prospective prediction from age 14 to 17
+              using direct measures of social media use and gaming alongside
+              internalising distress and SDQ difficulties.
             </p>
           </div>
         </div>
@@ -1097,9 +1092,11 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
             <p>
               Individual-level SEARCH data are restricted by the ethics approval and
               participant-consent conditions. Global Mind Project data are available from
-              Sapien Labs, and Millennium Cohort Study data are available from the UK Data
-              Service. Derived outputs are supplied in Supplementary Data 1 and the code
-              archives below.
+              Sapien Labs under its data-access conditions. Millennium Cohort Study data
+              are available to registered UK Data Service users under its End User Licence.
+              Supplementary Data 1 contains 23 machine-readable result files; further
+              aggregate outputs are included in the code archives. No individual-level
+              participant records are included in these downloads.
             </p>
           </div>
           <div class="availability-block">
@@ -1124,8 +1121,8 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
 
     <footer>
       <span>
-        Supported by NSFC-Jiangsu Joint Fund U24A20701 and HK RGC Strategic Target Grant
-        STG1/M-501/23-N.
+        Supported by the NSFC-Jiangsu Joint Fund (U24A20701) and the Hong Kong Research
+        Grants Council (STG1/M-501/23-N).
       </span>
     </footer>
   </body>
