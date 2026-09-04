@@ -10,6 +10,13 @@ The public page and downloadable manuscript were synchronised with the author-su
 submission materials on 4 September 2026. The website is public and is not an
 anonymous review repository.
 
+The downloadable archives were refreshed from the cleaned submission package on
+4 September 2026: the main analysis archive contains 105 files, the external
+validation archive contains 21 files, and Supplementary Data 1 contains 23 files.
+The archives include analysis code and non-identifiable aggregate results, not
+individual-level participant datasets. The external figure helper now uses the
+SEARCH CIAS value for problematic digital use, rather than the ACT value.
+
 ## Local Development
 
 ```bash
