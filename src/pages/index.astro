@@ -12,35 +12,35 @@ const mainFigures = [
     label: 'Figure 1',
     title: 'Longitudinal cross-lagged network in SEARCH',
     caption:
-      'Among 6,092 adolescents reassessed after approximately one year, emotional distress had the largest positive net directionality (+0.249, 95% CI 0.086 to 0.418), whereas problematic digital use showed no clear net directionality.',
+      'Among 6,092 adolescents followed for approximately one year, emotional distress predicted later problematic digital use (β = 0.160); the reciprocal association was positive but smaller (β = 0.079). Emotional distress had the largest positive CLPN net-directionality point estimate (+0.249, 95% CI 0.086 to 0.418).',
   },
   {
     src: 'figures/figure-2.png',
     label: 'Figure 2',
     title: 'Longitudinal directionality in the UK Millennium Cohort Study',
     caption:
-      'From age 14 to 17, social-media use had the most negative net directionality (−0.211, 95% CI −0.260 to −0.139), while hyperactivity/inattention had the largest positive value. The cross-lagged analysis included 7,838 complete cases.',
+      'Among 7,838 complete cases followed from ages 14 to 17, hyperactivity/inattention and conduct problems positively predicted later social media use and gaming. Internalising distress showed small negative direct coefficients for both behaviours; social media use and gaming had negative CLPN net-directionality estimates.',
   },
   {
     src: 'figures/figure-3.png',
     label: 'Figure 3',
     title: 'Baseline structural network and structural-control profile',
     caption:
-      'The 104-item SEARCH network had ten equivalent three-node minimum dominating sets. DIET22, SDQ18 and DASS14 were the most frequent structural-control nodes. Structural control and longitudinal prediction identified different positions in the symptom network.',
+      'The 104-item baseline SEARCH network contained 2,777 non-zero edges and ten equivalent three-node minimum dominating sets. DIET22, SDQ18 and DASS14 were the most recurrent structural-control nodes; control frequency was only weakly correlated with node strength (Spearman ρ = 0.061).',
   },
   {
     src: 'figures/figure-4.png',
     label: 'Figure 4',
     title: 'Exploratory Bayesian comparison within SEARCH',
     caption:
-      'Bayesian net out-degree was positively correlated with CLPN net directionality across six domains, although the estimate was imprecise (r = 0.750, two-sided P = 0.086; bootstrap 95% CI −0.604 to 0.995). All seven skeleton edges were reversible in the CPDAG.',
+      'DASS and ISI shared the highest Bayesian net out-degree. Bayesian net out-degree was positively correlated with CLPN net directionality across six domains, although the estimate was imprecise (r = 0.750, two-sided P = 0.086; bootstrap 95% CI −0.604 to 0.995), and all seven skeleton edges were reversible in the CPDAG.',
   },
   {
     src: 'figures/figure-5.png',
     label: 'Figure 5',
     title: 'Cross-sectional construct-level comparison in GMP',
     caption:
-      'In 147,506 young adults aged 18–24 years, emotion had the highest undirected strength (0.726, 95% CI 0.714 to 0.738), whereas social-media frequency had the lowest strength.',
+      'In 147,506 young adults aged 18–24 years, emotion had the highest undirected strength (0.726, 95% CI 0.714 to 0.738), whereas social media frequency had the lowest strength (0.075, 95% CI 0.065 to 0.085). Emotion also ranked first in the corresponding six-domain SEARCH comparison.',
   },
 ];
 
@@ -866,7 +866,7 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
     >
       <div class="hero-inner">
         <div class="hero-copy">
-          <p class="eyebrow">Adolescent mental health network study</p>
+          <p class="eyebrow">Prospective adolescent digital-use analysis</p>
           <h1>{paperTitle}</h1>
           <p class="authors">
             <span class="author-names">Jing Zhang · Ling Zhang · Xizhe Zhang</span>
@@ -886,19 +886,19 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
       <div class="metrics" aria-label="Study scale">
         <div class="metric">
           <strong>10,356</strong>
-          <span>Chinese adolescents in the baseline school cohort</span>
+          <span>participants in the baseline SEARCH network</span>
         </div>
         <div class="metric">
           <strong>6,092</strong>
-          <span>matched adolescents across two waves about one year apart</span>
-        </div>
-        <div class="metric">
-          <strong>147,506</strong>
-          <span>young adults aged 18-24 years in the Global Mind Project sample</span>
+          <span>SEARCH complete cases followed for approximately one year</span>
         </div>
         <div class="metric">
           <strong>7,838</strong>
-          <span>complete cases in the UK Millennium Cohort Study analysis</span>
+          <span>MCS complete cases followed from ages 14 to 17</span>
+        </div>
+        <div class="metric">
+          <strong>147,506</strong>
+          <span>young adults in the pooled cross-sectional GMP comparison</span>
         </div>
       </div>
 
@@ -906,12 +906,12 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         <div class="section-head">
           <div>
             <p class="section-kicker">Abstract</p>
-            <h2>Temporal ordering across three cohort resources.</h2>
+            <h2>Prospective relationships differ across digital-use constructs.</h2>
           </div>
           <p class="lead">
-            The study distinguishes longitudinal prediction from cross-sectional network
-            structure and compares problematic digital use with direct measures of
-            social-media use and gaming.
+            Two longitudinal cohorts distinguish symptoms of problematic use from time
+            spent on social media or gaming, with complementary structural comparisons
+            in SEARCH and the Global Mind Project.
           </p>
         </div>
         <div class="abstract">
@@ -930,40 +930,44 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         <div class="section-head">
           <div>
             <p class="section-kicker">Findings</p>
-            <h2>Longitudinal and structural analyses answer different questions.</h2>
+            <h2>Psychological predictors of later digital use differ across cohorts.</h2>
           </div>
           <p class="lead">
-            The longitudinal analyses estimate prospective ordering. The structural and
-            Bayesian analyses provide complementary, within-sample descriptions.
+            SEARCH measured generalised problematic use, whereas MCS measured social
+            media use and gaming duration. The results therefore provide construct-level
+            comparison rather than instrument-level replication.
           </p>
         </div>
         <ul class="finding-list">
           <li>
-            <strong>Emotional distress had the largest outgoing prediction in SEARCH.</strong>
-            Its net directionality was +0.249 (95% CI 0.086 to 0.418). Problematic
-            digital use showed no clear net directionality.
+            <strong>Emotional distress predicted later problematic digital use in SEARCH.</strong>
+            The DASS→CIAS coefficient was β = 0.160; the reciprocal CIAS→DASS coefficient
+            was also positive but smaller (β = 0.079). Emotional distress retained the
+            largest positive CLPN net-directionality point estimate.
           </li>
           <li>
-            <strong>Social media use and gaming occupied net sink positions in MCS.</strong>
-            Social-media use had the most negative net directionality (−0.211, 95% CI
-            −0.260 to −0.139), whereas hyperactivity/inattention had the largest positive
-            value (+0.177, 95% CI 0.105 to 0.255).
+            <strong>Externalising domains predicted later screen-related behaviour in MCS.</strong>
+            Hyperactivity/inattention and conduct problems positively predicted later
+            social media use and gaming, whereas internalising distress showed small
+            negative direct coefficients for both behaviours.
           </li>
           <li>
-            <strong>Structural control was distinct from temporal directionality.</strong>
+            <strong>Static structural control differed from temporal prediction.</strong>
             DIET22, SDQ18 and DASS14 were the most frequent members of the ten equivalent
-            three-node minimum dominating sets in the baseline SEARCH network.
+            three-node minimum dominating sets. These positions describe structural
+            coverage and should not be interpreted as causal intervention targets.
           </li>
           <li>
-            <strong>The Bayesian comparison was positive but imprecise.</strong>
-            Net out-degree correlated with longitudinal net directionality (r = 0.750,
-            two-sided P = 0.086; bootstrap 95% CI −0.604 to 0.995). All seven skeleton
-            edges were reversible in the CPDAG.
+            <strong>The exploratory Bayesian comparison showed partial correspondence.</strong>
+            DASS and ISI shared the highest Bayesian net out-degree. Its correlation with
+            CLPN net directionality was positive but imprecise (r = 0.750, two-sided
+            P = 0.086), and all seven skeleton edges were reversible in the CPDAG.
           </li>
           <li>
-            <strong>Emotion had the highest cross-sectional strength in GMP.</strong>
-            Emotional symptoms had a strength of 0.726 (95% CI 0.714 to 0.738), whereas
-            social-media frequency had the lowest strength (0.075, 95% CI 0.065 to 0.085).
+            <strong>Emotion ranked first in both six-domain cross-sectional networks.</strong>
+            Emotion had the highest strength in GMP (0.726, 95% CI 0.714 to 0.738).
+            The screen-related domain ranked second in SEARCH but last in GMP, reflecting
+            the distinction between problematic-use symptoms and social media frequency.
           </li>
         </ul>
       </section>
@@ -972,12 +976,12 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         <div class="section-head">
           <div>
             <p class="section-kicker">Figures</p>
-            <h2>Main results.</h2>
+            <h2>Longitudinal findings and complementary network structure.</h2>
           </div>
           <p class="lead">
-            The sequence follows the manuscript: SEARCH longitudinal results,
-            MCS longitudinal analysis, SEARCH structure, Bayesian comparison and GMP
-            cross-sectional comparison.
+            Figures follow the current manuscript: SEARCH and MCS longitudinal analyses,
+            baseline SEARCH structural control, an exploratory Bayesian comparison and
+            the cross-sectional GMP analysis.
           </p>
         </div>
         <div class="figure-stack">
@@ -1000,55 +1004,62 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         <div class="section-head">
           <div>
             <p class="section-kicker">Methods</p>
-            <h2>Three cohorts and complementary network analyses.</h2>
+            <h2>Two longitudinal cohorts with complementary structural comparisons.</h2>
           </div>
           <p class="lead">
-            SEARCH provides item-level structure and longitudinal prediction. MCS and GMP
-            provide longitudinal and cross-sectional construct-level comparisons.
+            Cross-lagged panel networks modelled six domains in SEARCH and MCS. Baseline
+            SEARCH and pooled GMP networks addressed distinct cross-sectional questions.
           </p>
         </div>
         <div class="methods-grid">
           <div class="method">
-            <b>Network reconstruction</b>
+            <b>SEARCH cohort and domain scores</b>
             <p>
-              Item scores were transformed with a Gaussian-copula transform and estimated
-              using graphical Lasso with likelihood-based cross-validation.
+              SEARCH included six domains. The longitudinal broad-difficulties measure was
+              a study-specific 25-item SDQ core-item composite, not the standard 20-item
+              SDQ total difficulties score; items and domain scores were standardised
+              within wave.
             </p>
           </div>
           <div class="method">
-            <b>Control analysis</b>
+            <b>SEARCH cross-lagged panel network</b>
             <p>
-              Minimum dominating sets, control frequency and module-control networks
-              described structural coverage in the baseline symptom network.
+              Each follow-up domain was regressed on all six baseline domains using HC3
+              robust standard errors. Net-directionality intervals used 1,000 bootstrap
+              resamples, with school-cluster-robust inference reported for all 30
+              cross-domain paths.
             </p>
           </div>
           <div class="method">
-            <b>Cross-lagged panel network</b>
+            <b>Baseline SEARCH structure</b>
             <p>
-              Wave-3 domain scores were regressed on all Wave-1 domains with robust
-              standard errors and bootstrap confidence intervals for net directionality.
-            </p>
-          </div>
-          <div class="method">
-            <b>Bayesian directed graph</b>
-            <p>
-              A Hill-Climb BIC graph and bootstrap edge stability described baseline
-              conditional dependencies and their relation to longitudinal ordering.
-            </p>
-          </div>
-          <div class="method">
-            <b>Global Mind Project</b>
-            <p>
-              A pooled young-adult sample provided a cross-sectional comparison of
-              construct-level strength across instruments and settings.
+              The 104-item network used a nonparanormal Gaussian-copula transformation
+              and cross-validated graphical lasso. Minimum dominating sets, control
+              frequency and module control described structural coverage.
             </p>
           </div>
           <div class="method">
             <b>Millennium Cohort Study</b>
             <p>
-              A six-construct CLPN estimated prospective prediction from age 14 to 17
-              using direct measures of social media use and gaming alongside
-              internalising distress and SDQ difficulties.
+              A six-construct CLPN estimated prospective associations from ages 14 to 17
+              among 7,838 complete cases. The analysis used direct measures of social
+              media use and gaming and was interpreted at the construct level.
+            </p>
+          </div>
+          <div class="method">
+            <b>Exploratory Bayesian graph</b>
+            <p>
+              Tertile-discretised SEARCH domain scores were analysed using hill-climb
+              search with the Bayesian information criterion and 200 bootstrap resamples.
+              CPDAG results constrained directional interpretation.
+            </p>
+          </div>
+          <div class="method">
+            <b>Global Mind Project</b>
+            <p>
+              Six mapped domain scores from 147,506 young adults were analysed using a
+              cross-validated Gaussian graphical model. Strength intervals used 300
+              nonparametric bootstrap resamples.
             </p>
           </div>
         </div>
@@ -1058,11 +1069,12 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         <div class="section-head">
           <div>
             <p class="section-kicker">Supplement</p>
-            <h2>Additional figures.</h2>
+            <h2>Robustness and sensitivity analyses.</h2>
           </div>
           <p class="lead">
-            Supporting analyses cover matching, robustness, alternative directional checks,
-            community structure, driver stability and null-model comparisons.
+            Supporting analyses cover matching and score stability, school-cluster-robust
+            inference, estimator sensitivity, community stability, node-metric comparisons,
+            structural-control stability and degree-preserving null models.
           </p>
         </div>
         <div class="supplement-grid">
@@ -1079,11 +1091,12 @@ const supplementFigures = Array.from({ length: 20 }, (_, index) => ({
         <div class="section-head">
           <div>
             <p class="section-kicker">Materials</p>
-            <h2>Availability.</h2>
+            <h2>Data, code and reviewer files.</h2>
           </div>
           <p class="lead">
-            Reviewer materials include the manuscript, supplementary information,
-            machine-readable results and analysis-code archives.
+            The site provides the current manuscript and Supplementary Information,
+            25 machine-readable aggregate result files and separate SEARCH and GMP/MCS
+            analysis-code archives.
           </p>
         </div>
         <div class="availability">
