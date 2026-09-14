@@ -1,4 +1,4 @@
-# Emotional distress predicts change in adolescent problematic digital use and related symptoms
+# Emotional distress predicts later problematic digital use in adolescents
 
 This is a reviewer-facing paper website built with Astro and configured for GitHub Pages under:
 
